@@ -1,5 +1,9 @@
 <template>
-  <router-link :to="to" class="text-teal-800 text-2xl section-nav mx-2 px-2">
+  <router-link
+    :to="to"
+    class="text-teal-800 text-2xl section-nav mx-2 px-2"
+    style="font-family: poppins"
+  >
     {{ label }}
   </router-link>
 </template>

@@ -30,8 +30,12 @@ const showMobileMenu = ref(false);
   <q-layout view="lHh lpr lFf" container style="height: 400px" class="shadow-2">
     <q-header class="transparent-header w-full py-10">
       <q-toolbar inset class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <q-toolbar-title class="text-3xl text-teal-800">
-          <router-link to="/" class="text-3xl text-teal-800 no-underline">
+        <q-toolbar-title class="text-teal-800 landing-brand">
+          <router-link
+            to="/"
+            class="text-5xl text-teal-800 no-underline"
+            style="font-family: pacifico"
+          >
             HyBo Grooming
           </router-link>
         </q-toolbar-title>
@@ -106,5 +110,11 @@ const showMobileMenu = ref(false);
     color: white;
     border-radius: 5px;
   }
+}
+
+.landing-brand.ellipsis {
+  overflow: visible !important; /* Make sure the text is fully visible */
+  white-space: normal !important; /* Allow the text to wrap */
+  text-overflow: clip !important; /* Disable the ellipsis effect */
 }
 </style>
