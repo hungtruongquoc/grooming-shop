@@ -46,7 +46,7 @@ const showMobileMenu = ref(false);
           </router-link>
         </div>
         <div>
-          <q-btn flat dense class="md:hidden">
+          <q-btn flat dense class="md:hidden text-teal-800">
             <FontAwesomeIcon :icon="faBars" size="2x" />
           </q-btn>
           <q-menu v-show="showMobileMenu">
