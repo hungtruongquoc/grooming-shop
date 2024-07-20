@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faUserCircle } from '@fortawesome/pro-regular-svg-icons';
+import { faUserCircle as faUserCircleSolid } from '@fortawesome/pro-solid-svg-icons';
+import { ref } from 'vue';
+import HoverAppearanceButton from 'components/HoverAppearanceButton.vue';
 
 defineOptions({
   name: 'GlobalLayout',
@@ -16,6 +19,7 @@ const toolbarItems = [
     to: '/#groomers',
   },
 ];
+ref(false);
 </script>
 
 <template>
@@ -37,16 +41,20 @@ const toolbarItems = [
           dense
           class="text-teal-800 text-2xl"
           no-caps
+          :ripple="false"
+          rounded
+          :to="item.to"
         >
-          <router-link :to="item.to" class="text-teal-800 no-underline">
-            {{ item.label }}
-          </router-link>
+          {{ item.label }}
         </q-btn>
-        <q-btn flat dense class="ml-5 text-teal-800">
-          <router-link to="/login" class="text-teal-800 no-underline">
+        <HoverAppearanceButton to="/login" text-color="text-teal-800">
+          <template #icon-default>
             <FontAwesomeIcon :icon="faUserCircle" size="2x" />
-          </router-link>
-        </q-btn>
+          </template>
+          <template #icon-hover>
+            <FontAwesomeIcon :icon="faUserCircleSolid" size="2x" />
+          </template>
+        </HoverAppearanceButton>
       </q-toolbar>
     </q-header>
     <q-page-container>
