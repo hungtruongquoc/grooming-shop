@@ -4,6 +4,7 @@ import { faUserCircle } from '@fortawesome/pro-regular-svg-icons';
 import { faUserCircle as faUserCircleSolid } from '@fortawesome/pro-solid-svg-icons';
 import { faBars } from '@fortawesome/pro-solid-svg-icons';
 import HoverAppearanceButton from 'components/HoverAppearanceButton.vue';
+import LandingPageNavLink from 'components/LandingPageNavLink.vue';
 import { useMediaQuery } from '../helpers/useMediaQuery';
 import { ref } from 'vue';
 
@@ -36,14 +37,12 @@ const showMobileMenu = ref(false);
         </q-toolbar-title>
         <q-space v-show="!isMobile"></q-space>
         <div v-show="!isMobile" class="flex space-x-4 md:flex md:space-x-4">
-          <router-link
+          <LandingPageNavLink
             v-for="item in toolbarItems"
             :key="item.label"
-            class="text-teal-800 text-2xl section-nav mx-2 px-2"
+            :label="item.label"
             :to="item.to"
-          >
-            {{ item.label }}
-          </router-link>
+          />
         </div>
         <div>
           <q-btn flat dense class="md:hidden text-teal-800">
@@ -51,14 +50,12 @@ const showMobileMenu = ref(false);
           </q-btn>
           <q-menu v-show="showMobileMenu">
             <div class="flex-col flex gap-5 py-5">
-              <router-link
+              <LandingPageNavLink
                 v-for="item in toolbarItems"
                 :key="item.label"
-                class="text-teal-800 text-2xl section-nav mx-2 px-2"
+                :label="item.label"
                 :to="item.to"
-              >
-                {{ item.label }}
-              </router-link>
+              />
               <HoverAppearanceButton
                 to="/login"
                 text-color="text-teal-800"
