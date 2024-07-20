@@ -6,6 +6,7 @@
   "author": "Hung Truong <hungtruongquoc@gmail.com>",
   "private": true,
   "scripts": {
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
@@ -42,6 +43,7 @@
     "eslint-plugin-vue": "^9.0.0",
     "prettier": "^2.5.1",
     "serve": "^14.2.3",
+    "tailwindcss": "^3.4.6",
     "typescript": "^4.5.4",
     "vite-plugin-checker": "^0.6.4",
     "vue-tsc": "^1.8.22"

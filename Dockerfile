@@ -16,6 +16,9 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
+# Build the Tailwind CSS
+RUN npm run build:css
+
 # Build the Nuxt.js application
 RUN npm run build
 
