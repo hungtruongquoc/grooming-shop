@@ -2,8 +2,9 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faUserCircle } from '@fortawesome/pro-regular-svg-icons';
 import { faUserCircle as faUserCircleSolid } from '@fortawesome/pro-solid-svg-icons';
-import { ref } from 'vue';
+import { faBars } from '@fortawesome/pro-solid-svg-icons';
 import HoverAppearanceButton from 'components/HoverAppearanceButton.vue';
+import { useMediaQuery } from '../helpers/useMediaQuery';
 
 defineOptions({
   name: 'GlobalLayout',
@@ -19,35 +20,38 @@ const toolbarItems = [
     to: '/#groomers',
   },
 ];
-ref(false);
+const isMobile = useMediaQuery('(max-width: 768px)');
 </script>
 
 <template>
   <q-layout view="lHh lpr lFf" container style="height: 400px" class="shadow-2">
-    <q-header
-      class="transparent-header mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl py-10"
-    >
-      <q-toolbar inset>
+    <q-header class="transparent-header w-full py-10">
+      <q-toolbar inset class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <q-toolbar-title class="text-3xl text-teal-800">
           <router-link to="/" class="text-3xl text-teal-800 no-underline">
             HyBo Grooming
           </router-link>
         </q-toolbar-title>
-        <q-space></q-space>
-        <q-btn
-          v-for="item in toolbarItems"
-          :key="item.label"
-          flat
-          dense
-          class="text-teal-800 text-2xl"
-          no-caps
-          :ripple="false"
-          rounded
-          :to="item.to"
-        >
-          {{ item.label }}
+        <q-space v-show="!isMobile"></q-space>
+        <div v-show="!isMobile" class="flex space-x-4 md:flex md:space-x-4">
+          <router-link
+            v-for="item in toolbarItems"
+            :key="item.label"
+            class="text-teal-800 text-2xl section-nav mx-2 px-2"
+            :to="item.to"
+          >
+            {{ item.label }}
+          </router-link>
+        </div>
+        <q-btn flat dense class="md:hidden">
+          <FontAwesomeIcon :icon="faBars" size="2x" />
         </q-btn>
-        <HoverAppearanceButton to="/login" text-color="text-teal-800">
+        <HoverAppearanceButton
+          to="/login"
+          text-color="text-teal-800"
+          v-show="!isMobile"
+          class="ml-5"
+        >
           <template #icon-default>
             <FontAwesomeIcon :icon="faUserCircle" size="2x" />
           </template>
@@ -70,5 +74,12 @@ ref(false);
   background-color: transparent;
   box-shadow: none; /* Remove shadow if needed */
   color: black;
+}
+.section-nav {
+  &:hover {
+    background-color: #26a69a;
+    color: white;
+    border-radius: 5px;
+  }
 }
 </style>

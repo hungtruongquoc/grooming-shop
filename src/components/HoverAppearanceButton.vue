@@ -1,17 +1,14 @@
 <template>
-  <q-btn
-    flat
+  <router-link
     v-bind="$attrs"
     @mouseover="isHovered = true"
     @mouseleave="isHovered = false"
-    :ripple="false"
-    round
     :class="[textColor]"
     :to="to"
   >
     <slot name="icon-default" v-if="!isHovered"></slot>
     <slot name="icon-hover" v-else></slot>
-  </q-btn>
+  </router-link>
 </template>
 
 <script setup lang="ts">
