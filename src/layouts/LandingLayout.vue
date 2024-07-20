@@ -5,6 +5,7 @@ import { faUserCircle as faUserCircleSolid } from '@fortawesome/pro-solid-svg-ic
 import { faBars } from '@fortawesome/pro-solid-svg-icons';
 import HoverAppearanceButton from 'components/HoverAppearanceButton.vue';
 import { useMediaQuery } from '../helpers/useMediaQuery';
+import { ref } from 'vue';
 
 defineOptions({
   name: 'GlobalLayout',
@@ -21,6 +22,7 @@ const toolbarItems = [
   },
 ];
 const isMobile = useMediaQuery('(max-width: 768px)');
+const showMobileMenu = ref(false);
 </script>
 
 <template>
@@ -43,9 +45,35 @@ const isMobile = useMediaQuery('(max-width: 768px)');
             {{ item.label }}
           </router-link>
         </div>
-        <q-btn flat dense class="md:hidden">
-          <FontAwesomeIcon :icon="faBars" size="2x" />
-        </q-btn>
+        <div>
+          <q-btn flat dense class="md:hidden">
+            <FontAwesomeIcon :icon="faBars" size="2x" />
+          </q-btn>
+          <q-menu v-show="showMobileMenu">
+            <div class="flex-col flex gap-5 py-5">
+              <router-link
+                v-for="item in toolbarItems"
+                :key="item.label"
+                class="text-teal-800 text-2xl section-nav mx-2 px-2"
+                :to="item.to"
+              >
+                {{ item.label }}
+              </router-link>
+              <HoverAppearanceButton
+                to="/login"
+                text-color="text-teal-800"
+                class="ml-5"
+              >
+                <template #icon-default>
+                  <FontAwesomeIcon :icon="faUserCircle" size="2x" />
+                </template>
+                <template #icon-hover>
+                  <FontAwesomeIcon :icon="faUserCircleSolid" size="2x" />
+                </template>
+              </HoverAppearanceButton>
+            </div>
+          </q-menu>
+        </div>
         <HoverAppearanceButton
           to="/login"
           text-color="text-teal-800"
