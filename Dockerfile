@@ -19,8 +19,11 @@ COPY . .
 # Build the Nuxt.js application
 RUN npm run build
 
+# Install serve globally
+RUN npm install -g serve
+
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Start the Nuxt.js application
-CMD ["npm", "start"]
+# Start the application
+CMD ["serve", "-s", "dist"]
