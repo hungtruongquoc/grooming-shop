@@ -20,11 +20,11 @@ defineOptions({
 const toolbarItems = [
   {
     label: 'Services',
-    to: '/#services',
+    to: '#services',
   },
   {
     label: 'Groomers',
-    to: '/#groomers',
+    to: '#groomers',
   },
 ];
 const isMobile = useMediaQuery('(max-width: 768px)');
