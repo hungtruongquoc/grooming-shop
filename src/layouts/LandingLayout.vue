@@ -3,6 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faUserCircle } from '@fortawesome/pro-regular-svg-icons';
 import { faUserCircle as faUserCircleSolid } from '@fortawesome/pro-solid-svg-icons';
 import { faBars } from '@fortawesome/pro-solid-svg-icons';
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 import HoverAppearanceButton from 'components/HoverAppearanceButton.vue';
 import LandingPageNavLink from 'components/LandingPageNavLink.vue';
 import { useMediaQuery } from '../helpers/useMediaQuery';
@@ -27,15 +32,18 @@ const showMobileMenu = ref(false);
 </script>
 
 <template>
-  <q-layout view="lHh lpr lFf" container style="height: 400px" class="shadow-2">
+  <q-layout view="lHh lpr lFf" container style="height: 100vh" class="shadow-2">
     <q-header class="transparent-header w-full py-10">
       <q-toolbar inset class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <q-toolbar-title class="text-teal-800 landing-brand">
           <router-link
             to="/"
-            class="text-5xl text-teal-800 no-underline"
+            class="text-3xl md:text-5xl text-teal-800 no-underline"
             style="font-family: pacifico"
           >
+            <q-avatar size="72px">
+              <q-img src="/images/logo.jpg" alt="Logo HyBo Grooming" />
+            </q-avatar>
             HyBo Grooming
           </router-link>
         </q-toolbar-title>
@@ -90,17 +98,44 @@ const showMobileMenu = ref(false);
         </HoverAppearanceButton>
       </q-toolbar>
     </q-header>
-    <q-page-container>
-      <q-page class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-        <router-view />
-      </q-page>
-    </q-page-container>
+    <router-view />
+    <q-footer class="transparent-header py-4">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-teal-800 font-semibold mb-4">Follow Us</p>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="https://www.facebook.com/HyBoPetSpa"
+            target="_blank"
+            aria-label="Facebook"
+            class="text-teal-800 hover:text-teal-600"
+          >
+            <FontAwesomeIcon :icon="faFacebook" size="2x" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            aria-label="Twitter"
+            class="text-teal-800 hover:text-teal-600"
+          >
+            <FontAwesomeIcon :icon="faTwitter" size="2x" />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            aria-label="Instagram"
+            class="text-teal-800 hover:text-teal-600"
+          >
+            <FontAwesomeIcon :icon="faInstagram" size="2x" />
+          </a>
+        </div>
+      </div>
+    </q-footer>
   </q-layout>
 </template>
 
 <style scoped lang="scss">
 .transparent-header {
-  background-color: transparent;
+  background-color: #f1f8e9 !important;
   box-shadow: none; /* Remove shadow if needed */
   color: black;
 }

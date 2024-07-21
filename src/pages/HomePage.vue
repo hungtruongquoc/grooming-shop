@@ -1,7 +1,208 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faCheckCircle, faDog } from '@fortawesome/pro-solid-svg-icons';
+import { faPaw } from '@fortawesome/pro-light-svg-icons';
+</script>
 
 <template>
-  <h1 class="bg-green-2">Works</h1>
+  <q-page-container>
+    <q-page class="mb-8">
+      <div class="w-full bg-pastel-teal py-16">
+        <div class="max-w-screen-md mx-auto text-center px-4">
+          <h1
+            class="text-5xl font-bold mb-4 text-teal-900"
+            style="font-family: pacifico"
+          >
+            Welcome to HyBo Grooming
+          </h1>
+          <div
+            class="flex flex-col md:flex-row justify-center items-center mb-8 mt-8"
+          >
+            <svg height="30" width="200" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 20 Q 95 10 180 20"
+                stroke="#064e3b"
+                stroke-width="2"
+                fill="transparent"
+              />
+            </svg>
+            <span class="text-teal-900 font-bold mx-2"
+              ><FontAwesomeIcon :icon="faPaw" size="4x"
+            /></span>
+            <svg height="30" width="200" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 20 Q 95 10 180 20"
+                stroke="#064e3b"
+                stroke-width="2"
+                fill="transparent"
+              />
+            </svg>
+          </div>
+          <p
+            class="text-xl mb-12 text-teal-900 font-semibold leading-relaxed"
+            style="font-family: poppins"
+          >
+            Discover the
+            <span class="text-4xl" style="font-family: pacifico">ultimate</span>
+            in pet grooming! Our meticulously tailored packages ensure the
+            <span class="text-4xl" style="font-family: pacifico"
+              >utmost care</span
+            >
+            and
+            <span class="text-4xl" style="font-family: pacifico">comfort</span>
+            for your furry friend, delivering an unmatched grooming experience.
+          </p>
+          <p
+            class="text-lg mb-6 text-teal-800 font-semibold"
+            style="font-family: poppins"
+          >
+            Ready to pamper your pet? Click below to book the ultimate grooming
+            experience now!
+          </p>
+          <q-btn color="teal" class="q-pa-md" rounded no-caps>
+            <p><FontAwesomeIcon :icon="faDog" size="2x" /></p>
+            <p class="mx-2 text-2xl">Book Now</p>
+          </q-btn>
+        </div>
+      </div>
+      <div class="w-full md:max-w-screen-md mx-auto text-center my-8 px-4">
+        <h2 class="text-4xl font-bold mb-6 text-teal-800">
+          Our Grooming Packages
+        </h2>
+        <p class="text-lg mb-8 text-teal-800">
+          At HyBo Grooming, we offer two packages tailored to meet your pet's
+          needs. The
+          <span class="font-semibold" style="font-family: pacifico"
+            >Basic Package</span
+          >
+          includes essential grooming services, while the
+          <span class="font-semibold" style="font-family: pacifico"
+            >Deluxe Package</span
+          >
+          adds a full-body custom haircut for a luxurious experience.
+        </p>
+      </div>
+      <div class="overflow-x-auto">
+        <table
+          class="w-full md:max-w-screen-md border border-gray-300 divide-y divide-gray-200 mx-auto"
+        >
+          <thead class="bg-green-200">
+            <tr>
+              <th
+                class="px-6 py-4 text-left text-sm font-medium text-teal-900 uppercase tracking-wider"
+              ></th>
+              <th
+                class="px-6 py-4 text-center text-sm font-medium text-teal-900 uppercase tracking-wider"
+              >
+                Basic
+              </th>
+              <th
+                class="px-6 py-4 text-center text-sm font-medium text-teal-900 uppercase tracking-wider"
+              >
+                Deluxe
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-light-green-100 divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+                Nail File
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+                Ear Cleaning
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+                Anal Gland Check
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+                Full-body custom hair cut
+              </td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              ></td>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-center text-lg text-teal-900"
+              >
+                <FontAwesomeIcon
+                  :icon="faCheckCircle"
+                  class="text-green-600"
+                  aria-label="Included"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </q-page>
+  </q-page-container>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.bg-pastel-teal {
+  background-color: #a7d5c9;
+}
+
+.bg-light-green-100 {
+  background-color: #f0fdf4;
+}
+</style>
