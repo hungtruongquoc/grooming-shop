@@ -1,25 +1,31 @@
 import { defineStore } from 'pinia';
 import { api } from 'boot/axios';
 
-export const useServiceStore = defineStore('counter', {
-  state: () => ({
-    counter: 0,
+interface Service {
+  id: string;
+  name: string;
+  sys: { id: string };
+}
+
+interface ServiceStoreState {
+  isLoading: boolean;
+  services: Service[];
+}
+
+export const useServiceStore = defineStore('services', {
+  state: (): ServiceStoreState => ({
     isLoading: false,
     services: [],
   }),
 
-  getters: {
-    doubleCount(state) {
-      return state.counter * 2;
-    },
-  },
+  getters: {},
 
   actions: {
     async getServices(): Promise<void> {
       this.isLoading = true;
       try {
         const response = await api.get('/packages/');
-        this.services = response.data.data;
+        this.services = response.data.packages;
       } catch (error) {
         console.error(error);
       } finally {

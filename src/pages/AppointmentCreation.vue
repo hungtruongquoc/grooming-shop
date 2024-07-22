@@ -128,13 +128,14 @@ function onReset() {
             <p class="font-semibold text-xl mb-5">
               Please choose a date for your appointment
             </p>
-            <q-date v-model="formData.appointmentDate" />
+            <q-date v-model="formData.appointmentDate" color="pink" />
           </div>
           <div class="text-center">
             <p class="font-semibold text-xl mb-5">
               Please choose your arrival time
             </p>
             <q-time
+              color="pink"
               v-model="formData.appointmentTime"
               :hour-options="[10, 11, 12, 1, 2]"
             />
@@ -145,7 +146,7 @@ function onReset() {
           <q-btn
             label="Submit"
             type="submit"
-            color="primary"
+            color="pink"
             no-caps
             class="text-base grow"
             :disable="store.isLoading"
@@ -153,7 +154,7 @@ function onReset() {
           <q-btn
             label="Reset"
             type="reset"
-            color="primary"
+            color="secondary"
             flat
             class="q-ml-sm text-base grow"
             no-caps
