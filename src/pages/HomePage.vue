@@ -16,10 +16,7 @@ const navigateToAppointmentCreate = () => {
     <q-page class="mb-8">
       <div class="w-full bg-pink-200 py-16">
         <div class="max-w-screen-md mx-auto text-center px-4">
-          <h1
-            class="text-5xl mb-4 text-pink-400 font-semibold"
-            style="font-family: pacifico"
-          >
+          <h1 class="text-5xl mb-4 text-pink-400" style="font-family: pacifico">
             Welcome to HyBo Grooming
           </h1>
           <div
@@ -50,7 +47,7 @@ const navigateToAppointmentCreate = () => {
             style="font-family: poppins"
           >
             Discover the
-            <span class="text-4xl text-pink-400" style="font-family: pacifico"
+            <span class="text-3xl text-pink-400" style="font-family: pacifico"
               >ultimate</span
             >
             in pet grooming! Our meticulously tailored packages ensure the
@@ -91,11 +88,15 @@ const navigateToAppointmentCreate = () => {
         <p class="text-lg mb-8 text-teal-800">
           At HyBo Grooming, we offer two packages tailored to meet your pet's
           needs. The
-          <span class="font-semibold" style="font-family: pacifico"
+          <span
+            class="font-semibold text-pink-400"
+            style="font-family: pacifico"
             >Basic Package</span
           >
           includes essential grooming services, while the
-          <span class="font-semibold" style="font-family: pacifico"
+          <span
+            class="font-semibold text-pink-400"
+            style="font-family: pacifico"
             >Deluxe Package</span
           >
           adds a full-body custom haircut for a luxurious experience.
