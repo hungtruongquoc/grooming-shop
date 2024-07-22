@@ -122,7 +122,7 @@ function onReset() {
         />
         <q-select
           v-model="formData.service"
-          option-value="id"
+          option-value="sys.id"
           option-label="name"
           label="Packages"
           :options="serviceStore.services"
