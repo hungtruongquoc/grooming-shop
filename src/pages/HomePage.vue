@@ -2,6 +2,13 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCheckCircle, faDog } from '@fortawesome/pro-solid-svg-icons';
 import { faPaw } from '@fortawesome/pro-light-svg-icons';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const navigateToAppointmentCreate = () => {
+  router.push({ path: '/appointment-create' });
+};
 </script>
 
 <template>
@@ -65,7 +72,13 @@ import { faPaw } from '@fortawesome/pro-light-svg-icons';
               Ready to pamper your pet? Click below to book the ultimate
               grooming experience now!
             </p>
-            <q-btn color="pink" class="q-pa-md" rounded no-caps>
+            <q-btn
+              color="pink"
+              class="q-pa-md"
+              rounded
+              no-caps
+              @click="navigateToAppointmentCreate"
+            >
               <p><FontAwesomeIcon :icon="faDog" size="2x" /></p>
               <p class="mx-2 text-2xl">Book Now</p>
             </q-btn>

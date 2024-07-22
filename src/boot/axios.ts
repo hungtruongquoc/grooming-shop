@@ -1,6 +1,8 @@
 import { boot } from 'quasar/wrappers';
 import axios, { AxiosInstance } from 'axios';
 
+console.log(import.meta.env.VITE_API_URL);
+
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $axios: AxiosInstance;
@@ -14,7 +16,22 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
+
+// Add a request interceptor to include default query strings
+api.interceptors.request.use(
+  (config) => {
+    config.params = {
+      ...config.params,
+      customer: import.meta.env.VITE_API_KEY, // Add your default query parameter here
+      // Add other default query parameters as needed
+    };
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
