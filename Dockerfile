@@ -3,12 +3,24 @@ FROM node:20-alpine
 ARG FONTAWESOME_PACKAGE_TOKEN
 ENV FONTAWESOME_PACKAGE_TOKEN=$FONTAWESOME_PACKAGE_TOKEN
 
+# Set build arguments for environment variables
+ARG VITE_API_URL
+ARG VITE_API_KEY
+
+# Set environment variables from build arguments
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_API_KEY=$VITE_API_KEY
+
 # Set the working directory
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files
 COPY package*.json ./
 COPY .npmrc ./
+
+# Create a .env file with the environment variables
+RUN echo "VITE_API_URL=$VITE_API_URL" > .env
+RUN echo "VITE_API_KEY=$VITE_API_KEY" >> .env
 
 # Install dependencies
 RUN npm install
