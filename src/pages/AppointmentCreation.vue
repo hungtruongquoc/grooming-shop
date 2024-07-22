@@ -2,8 +2,10 @@
 import { useRuleStore } from 'stores/rules';
 import { onMounted, ref, reactive } from 'vue';
 import { date } from 'quasar';
+import { useServiceStore } from 'stores/services';
 
 const store = useRuleStore();
+const serviceStore = useServiceStore();
 
 const firstName = ref<string>('');
 const lastName = ref<string>('');
@@ -19,7 +21,8 @@ const formData = reactive({
 });
 
 onMounted(async () => {
-  await store.getRules();
+  // Start both API calls at the same time
+  await Promise.all([serviceStore.getServices(), store.getRules()]);
   updateDefaultDate();
   updateHourOptions();
   updateAppointmentTime();

@@ -1,30 +1,26 @@
 import { defineStore } from 'pinia';
 import { api } from 'src/boot/axios';
 
+interface SchedulingRule {
+  last_timestamp: string;
+  earliest_time: string;
+}
+
 interface RuleStoreState {
-  counter: number;
   isLoading: boolean;
-  rules: any[] | null;
+  rules: SchedulingRule[] | null;
 }
 
 export const useRuleStore = defineStore('rules', {
   state: (): RuleStoreState => ({
-    counter: 0,
     isLoading: false,
     rules: null,
   }),
 
-  getters: {
-    doubleCount(state) {
-      return state.counter * 2;
-    },
-  },
+  getters: {},
 
   actions: {
-    increment() {
-      this.counter++;
-    },
-    async getRules(): Promise<any> {
+    async getRules(): Promise<void> {
       this.isLoading = true;
       try {
         const response = await api.get('/rules/');
