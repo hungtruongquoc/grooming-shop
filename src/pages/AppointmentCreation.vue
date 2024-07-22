@@ -7,17 +7,14 @@ import { useServiceStore } from 'stores/services';
 const store = useRuleStore();
 const serviceStore = useServiceStore();
 
-const firstName = ref<string>('');
-const lastName = ref<string>('');
-const appointmentDate = ref(date.formatDate(Date.now(), 'YYYY/MM/DD'));
-const appointmentTime = ref(date.formatDate(Date.now(), 'H:m'));
 const hourOptions = ref<number[]>(Array.from({ length: 24 }, (_, i) => i));
 
 const formData = reactive({
-  firstName,
-  lastName,
-  appointmentDate,
-  appointmentTime,
+  firstName: '',
+  lastName: '',
+  appointmentDate: date.formatDate(Date.now(), 'YYYY/MM/DD'),
+  appointmentTime: date.formatDate(Date.now(), 'H:m'),
+  service: '',
 });
 
 onMounted(async () => {
@@ -86,8 +83,8 @@ function updateAppointmentTime() {
 }
 
 function onReset() {
-  firstName.value = '';
-  lastName.value = '';
+  formData.firstName = '';
+  formData.lastName = '';
   updateDefaultDate();
   updateAppointmentTime();
 }
@@ -123,6 +120,13 @@ function onReset() {
             (val) => (val && val.length > 0) || 'Please provide last name',
           ]"
         />
+        <q-select
+          v-model="formData.service"
+          option-value="id"
+          option-label="name"
+          label="Packages"
+          :options="serviceStore.services"
+        />
         <div class="flex flex-row gap-10 justify-center">
           <div class="text-center">
             <p class="font-semibold text-xl mb-5">
@@ -141,7 +145,6 @@ function onReset() {
             />
           </div>
         </div>
-
         <div class="flex flex-row justify-center mt-10">
           <q-btn
             label="Submit"
