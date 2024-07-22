@@ -85,7 +85,7 @@ const navigateToAppointmentCreate = () => {
         <h2 class="text-4xl font-bold mb-6 text-teal-800">
           Our Grooming Packages
         </h2>
-        <p class="text-lg mb-8 text-teal-800">
+        <p class="text-2xl mb-8 text-teal-800">
           At HyBo Grooming, we offer two packages tailored to meet your pet's
           needs. The
           <span
@@ -112,12 +112,14 @@ const navigateToAppointmentCreate = () => {
                 class="px-6 py-4 text-left text-sm font-medium text-teal-900 uppercase tracking-wider"
               ></th>
               <th
-                class="px-6 py-4 text-center text-sm font-medium text-teal-900 uppercase tracking-wider"
+                class="px-6 py-4 text-center text-2xl font-medium text-pink-400 tracking-wider"
+                style="font-family: pacifico"
               >
                 Basic
               </th>
               <th
-                class="px-6 py-4 text-center text-sm font-medium text-teal-900 uppercase tracking-wider"
+                class="px-6 py-4 text-center text-pink-400 text-2xl font-medium tracking-wider"
+                style="font-family: pacifico"
               >
                 Deluxe
               </th>
@@ -125,7 +127,10 @@ const navigateToAppointmentCreate = () => {
           </thead>
           <tbody class="bg-light-green-100 divide-y divide-gray-200">
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-base md:text-2xl text-teal-900"
+                style="font-family: poppins"
+              >
                 Nail File
               </td>
               <td
@@ -133,7 +138,7 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
@@ -142,13 +147,16 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-base md:text-2xl text-teal-900"
+                style="font-family: poppins"
+              >
                 Ear Cleaning
               </td>
               <td
@@ -156,7 +164,7 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
@@ -165,13 +173,16 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-base md:text-2xl text-teal-900"
+                style="font-family: poppins"
+              >
                 Anal Gland Check
               </td>
               <td
@@ -179,7 +190,7 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
@@ -188,13 +199,16 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-teal-900">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-base md:text-2xl text-teal-900"
+                style="font-family: poppins"
+              >
                 Full-body custom hair cut
               </td>
               <td
@@ -205,7 +219,7 @@ const navigateToAppointmentCreate = () => {
               >
                 <FontAwesomeIcon
                   :icon="faCheckCircle"
-                  class="text-green-600"
+                  class="text-pink-400"
                   aria-label="Included"
                 />
               </td>
