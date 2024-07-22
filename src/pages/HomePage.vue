@@ -8,10 +8,10 @@ import { faPaw } from '@fortawesome/pro-light-svg-icons';
   <q-page-container>
     <q-page class="mb-8">
       <div class="centralized-container">
-        <div class="w-full bg-pastel-teal py-16">
+        <div class="w-full bg-pink-200 py-16">
           <div class="max-w-screen-md mx-auto text-center px-4">
             <h1
-              class="text-5xl font-bold mb-4 text-teal-900"
+              class="text-5xl mb-4 text-pink-400 font-semibold"
               style="font-family: pacifico"
             >
               Welcome to HyBo Grooming
@@ -44,15 +44,15 @@ import { faPaw } from '@fortawesome/pro-light-svg-icons';
               style="font-family: poppins"
             >
               Discover the
-              <span class="text-4xl" style="font-family: pacifico"
+              <span class="text-4xl text-pink-400" style="font-family: pacifico"
                 >ultimate</span
               >
               in pet grooming! Our meticulously tailored packages ensure the
-              <span class="text-4xl" style="font-family: pacifico"
+              <span class="text-4xl text-pink-400" style="font-family: pacifico"
                 >utmost care</span
               >
               and
-              <span class="text-4xl" style="font-family: pacifico"
+              <span class="text-4xl text-pink-400" style="font-family: pacifico"
                 >comfort</span
               >
               for your furry friend, delivering an unmatched grooming
@@ -65,7 +65,7 @@ import { faPaw } from '@fortawesome/pro-light-svg-icons';
               Ready to pamper your pet? Click below to book the ultimate
               grooming experience now!
             </p>
-            <q-btn color="teal" class="q-pa-md" rounded no-caps>
+            <q-btn color="pink" class="q-pa-md" rounded no-caps>
               <p><FontAwesomeIcon :icon="faDog" size="2x" /></p>
               <p class="mx-2 text-2xl">Book Now</p>
             </q-btn>
@@ -225,5 +225,9 @@ import { faPaw } from '@fortawesome/pro-light-svg-icons';
 
 .bg-light-green-100 {
   background-color: #f0fdf4;
+}
+
+.text-pink-400 {
+  color: #f06292;
 }
 </style>

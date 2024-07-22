@@ -1,12 +1,13 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div
+    class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center"
+  >
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+      <div style="font-size: 30vh">404</div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+      <div class="text-h2" style="opacity: 0.4">
+        Are you looking for a new thing? Provide us any feedback to serve you
+        better.
       </div>
 
       <q-btn
@@ -24,6 +25,6 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'ErrorNotFound'
+  name: 'ErrorNotFound',
 });
 </script>
