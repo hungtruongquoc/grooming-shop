@@ -3,6 +3,7 @@ import { useRuleStore } from 'stores/rules';
 import { onMounted, ref, reactive } from 'vue';
 import { date } from 'quasar';
 import { useServiceStore } from 'stores/services';
+import { forkJoin, from, tap } from 'rxjs';
 
 const store = useRuleStore();
 const serviceStore = useServiceStore();
@@ -18,11 +19,19 @@ const formData = reactive({
 });
 
 onMounted(async () => {
+  const services$ = from(serviceStore.getServices());
+  const rules$ = from(store.getRules());
   // Start both API calls at the same time
-  await Promise.all([serviceStore.getServices(), store.getRules()]);
-  updateDefaultDate();
-  updateHourOptions();
-  updateAppointmentTime();
+  forkJoin([services$, rules$])
+    .pipe(
+      // When the serviceStore.getServices() is done, do nothing
+      tap(() => {
+        updateDefaultDate();
+        updateHourOptions();
+        updateAppointmentTime();
+      })
+    )
+    .subscribe();
 });
 
 function updateDefaultDate() {
@@ -85,6 +94,7 @@ function updateAppointmentTime() {
 function onReset() {
   formData.firstName = '';
   formData.lastName = '';
+  formData.service = '';
   updateDefaultDate();
   updateAppointmentTime();
 }
