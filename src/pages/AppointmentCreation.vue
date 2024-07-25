@@ -103,8 +103,9 @@ function onReset() {
         <q-input
           v-model="formData.firstName"
           fill
-          label="First Name *"
+          label="First Name*"
           lazy-rules
+          label-color="teal-10"
           clearable
           :rules="[
             (val) => (val && val.length > 0) || 'Please provide first name',
@@ -113,43 +114,47 @@ function onReset() {
         <q-input
           v-model="formData.lastName"
           fill
-          label="Last Name *"
+          label="Last Name*"
           lazy-rules
           clearable
+          label-color="teal-10"
           :rules="[
             (val) => (val && val.length > 0) || 'Please provide last name',
           ]"
         />
         <q-select
+          filled
           v-model="formData.service"
           option-value="sys.id"
           option-label="name"
-          label="Packages"
+          label-color="teal-10"
+          label="Packages*"
           :options="serviceStore.services"
+          clearable
         />
         <div class="flex flex-row gap-10 justify-center">
           <div class="text-center">
-            <p class="font-semibold text-xl mb-5">
+            <p class="font-semibold text-xl mb-5 text-teal-700">
               Please choose a date for your appointment
             </p>
-            <q-date v-model="formData.appointmentDate" color="pink" />
+            <q-date v-model="formData.appointmentDate" color="pink-11" />
           </div>
           <div class="text-center">
-            <p class="font-semibold text-xl mb-5">
+            <p class="font-semibold text-xl mb-5 text-teal-700">
               Please choose your arrival time
             </p>
             <q-time
-              color="pink"
+              color="pink-11"
               v-model="formData.appointmentTime"
               :hour-options="[10, 11, 12, 1, 2]"
             />
           </div>
         </div>
-        <div class="flex flex-row justify-center mt-10">
+        <div class="flex flex-col md:flex-row justify-center mt-10">
           <q-btn
             label="Submit"
             type="submit"
-            color="pink"
+            color="pink-11"
             no-caps
             class="text-base grow"
             :disable="store.isLoading"
@@ -159,7 +164,7 @@ function onReset() {
             type="reset"
             color="secondary"
             flat
-            class="q-ml-sm text-base grow"
+            class="md:ml-2 mt-2 md:mt-0 text-base grow"
             no-caps
             :disable="store.isLoading"
           />
